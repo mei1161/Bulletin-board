@@ -1,5 +1,6 @@
 %p#notice= notice
 %h1 Boards
+= page_entries_info @boards
 %table
   %thead
     %tr
@@ -13,4 +14,17 @@
         %td
           = link_to 'open', board_path(board)
 %br
-= link_to 'New Board', new_board_path
+= form_with scope: :board, url: boards_path, local: true do |f|
+  - if  @board.errors.any?
+    #error_explanation
+      .alert.alert-primary
+        = pluralize(@board.errors.count, 'error')
+        prohibited
+        this board from being saved:
+        - @board.errors.full_messages.each do |msg| 
+          = msg
+          
+  = f.label :name
+  = f.text_field :name, autofocus: true
+  = f.submit class: "btn btn-primary"
+= paginate @boards

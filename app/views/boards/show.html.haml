@@ -1,15 +1,34 @@
 %h2 
   = @board.name
-  - @board.responses.each do |res|
-    %p
-      = res.name
-      = res.content
-
+= page_entries_info @responses
+- @responses.each do |res|
+  %p
+    = res.reply_id
+    .response__name
+      = res.name 
+    Content
+    = simple_format(res.content)
+- if  @response.errors.any?
+  #error_explanation
+    .alert.alert-primary
+      = pluralize(@response.errors.count, 'error')
+      prohibited
+      this board from being saved:
+      - @response.errors.full_messages.each do |msg| 
+        = msg
 = form_with scope: :response, url: responses_path, local: true do |f|
-  = f.label :name
-  = f.text_field :name, autofocus: true
-  = f.label :content
-  = f.text_area :content
-  = f.hidden_field :board_id , value: @board.id
-
-  = f.submit class: 'btn btn-primary'
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name, autofocus: true
+    %br
+    = f.label :content
+    %br
+    = f.text_area :content
+    %br
+    = f.hidden_field :board_id , value: @board.id
+    %br
+      = f.submit class: 'btn btn-primary btn-sm'
+  %p
+    = link_to 'Back', boards_path
+= paginate @responses

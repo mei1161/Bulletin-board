@@ -1,13 +1,13 @@
 = form_with scope: :board, url: boards_path, local: true do |f|
   - if  @board.errors.any?
     #error_explanation
-      %h2
+      .alert.alert-primary
         = pluralize(@board.errors.count, 'error')
         prohibited
         this board from being saved:
         - @board.errors.full_messages.each do |msg| 
           = msg
+          
   = f.label :name
   = f.text_field :name, autofocus: true
-
-  = f.submit
+  = f.submit class: "btn btn-primary"

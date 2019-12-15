@@ -6,14 +6,18 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    @boards = Board.page(params[:page])
+    @board = Board.new
   end
 
   def new
     @board = Board.new
   end
 
-  def show; end
+  def show
+    @response = Response.new
+    @responses = @board.responses.page(params[:page])
+  end
 
   def create
     @board = Board.new(board_params)
@@ -22,7 +26,8 @@ class BoardsController < ApplicationController
       @board.save!
       redirect_to boards_path
     else
-      render 'new'
+      @boards = Board.all
+      render 'index'
     end
   end
 
