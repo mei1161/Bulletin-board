@@ -18,5 +18,5 @@
 class Board < ApplicationRecord
   acts_as_paranoid
   validates :name, presence: true
-  has_many :response
+  has_many :responses
 end

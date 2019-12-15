@@ -6,6 +6,7 @@ class CreateResponses < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :reply_id
       t.string :user_id
+      t.string :email
       t.text :content, null: false
       t.string :ipaddress
       t.references :board, null: false, foreign_key: true

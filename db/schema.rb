@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_12_15_011019) do
     t.string "name"
     t.integer "reply_id"
     t.string "user_id"
+    t.string "email"
     t.text "content", null: false
     t.string "ipaddress"
     t.integer "board_id", null: false
