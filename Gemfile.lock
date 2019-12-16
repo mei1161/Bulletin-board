@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/ctran/annotate_models.git
+  revision: 2f0cb8cbd13bf36f140c3a6eaddc00a1f5b42ae1
+  branch: develop
+  specs:
+    annotate (3.0.3)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,9 +70,6 @@ GEM
       activesupport (>= 4.2, < 7.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    annotate (3.0.3)
-      activerecord (>= 3.2, < 7.0)
-      rake (>= 10.4, < 14.0)
     autoprefixer-rails (9.7.3)
       execjs
     bindex (0.8.1)
@@ -251,7 +257,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_paranoid (~> 0.6.0)
-  annotate
+  annotate!
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.1.1)
   byebug
@@ -277,4 +283,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.0.2
+   2.1.0

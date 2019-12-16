@@ -1,13 +1,19 @@
+= link_to t('.back'), boards_path
 %h2 
   = @board.name
 = page_entries_info @responses
 - @responses.each do |res|
-  %p
+  .response__container
     = res.reply_id
     .response__name
       = res.name 
-    Content
-    = simple_format(res.content)
+    .response__date
+      = l(res.created_at, format: :response)
+    .response__content
+      = simple_format(res.content)
+
+= paginate @responses
+
 - if  @response.errors.any?
   #error_explanation
     .alert.alert-primary
@@ -29,6 +35,3 @@
     = f.hidden_field :board_id , value: @board.id
     %br
       = f.submit class: 'btn btn-primary btn-sm'
-  %p
-    = link_to 'Back', boards_path
-= paginate @responses

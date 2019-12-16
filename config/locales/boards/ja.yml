@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      boards: 掲示板
+    attributes:
+      board:
+        name: タイトル
+  boards:
+    show:
+      back: 戻る
+    index:
+      title: 掲示板
+      name: タイトル
+      link: リンク
+      open: 開く
+
+      

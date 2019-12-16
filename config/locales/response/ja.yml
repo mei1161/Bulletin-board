@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      response: レス
+    attributes:
+      response:
+        name: 名前
+        content: 本文
+  boards:
+    show:
+      back: 戻る
+      

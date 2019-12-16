@@ -18,5 +18,9 @@
  .response{
    &__name{
      color: green;
+     display: inline;
+   }
+   &__date{
+     display: inline;
    }
  }
