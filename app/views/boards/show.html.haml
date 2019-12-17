@@ -3,14 +3,17 @@
   = @board.name
 = page_entries_info @responses
 - @responses.each do |res|
-  .response__container
+  .response__container{id: "res_#{res.reply_id}"}
     = res.reply_id
     .response__name
       = res.name 
     .response__date
       = l(res.created_at, format: :response)
+    .response__user_id
+      id:
+      = res.user_id
     .response__content
-      = simple_format(res.content)
+      = simple_format(rewrite_response(res.content))
 
 = paginate @responses
 
@@ -26,7 +29,7 @@
   %p
     = f.label :name
     %br
-    = f.text_field :name, autofocus: true
+    = f.text_field :name
     %br
     = f.label :content
     %br

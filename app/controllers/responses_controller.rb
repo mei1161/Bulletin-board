@@ -3,6 +3,7 @@ class ResponsesController < ApplicationController
   def create
     @board = Board.find(params[:response][:board_id])
     @response = @board.responses.new(response_params)
+    @response.ipaddress = request.remote_ip
     if @response.valid?
       @response.save!
       redirect_to board_path(@board)
