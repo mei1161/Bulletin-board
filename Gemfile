@@ -61,3 +61,6 @@ gem 'acts_as_paranoid', '~> 0.6.0'
 gem 'haml-rails'
 gem 'bootstrap', '~> 4.1.1'
 gem 'kaminari'
+
+gem 'activeadmin'
+gem 'devise'
