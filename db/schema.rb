@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_014826) do
+ActiveRecord::Schema.define(version: 2020_01_24_034034) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_01_24_014826) do
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["board_id"], name: "index_responses_on_board_id"
     t.index ["deleted_at"], name: "index_responses_on_deleted_at"
   end

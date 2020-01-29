@@ -12,6 +12,8 @@
     .response__user_id
       id:
       = res.user_id
+    .response__image
+      = image_tag res.image.url if res.image?
     .response__content
       = simple_format(rewrite_response(res.content))
 
@@ -34,6 +36,10 @@
     = f.label :content
     %br
     = f.text_area :content
+    %br
+    = f.label :image
+    %br
+    = f.file_field :image
     %br
     = f.hidden_field :board_id , value: @board.id
     %br

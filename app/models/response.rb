@@ -6,6 +6,7 @@
 #  content    :text             not null
 #  deleted_at :datetime
 #  email      :string
+#  image      :string
 #  ipaddress  :string
 #  name       :string
 #  created_at :datetime         not null
@@ -27,6 +28,8 @@ class Response < ApplicationRecord
 
   before_save :create_no
   before_save :create_id
+
+  mount_uploader :image, ImageUploader
 
   def create_no
     ids = self.board.responses.pluck(:reply_id)

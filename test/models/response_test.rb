@@ -8,6 +8,7 @@
 #  content    :text             not null
 #  deleted_at :datetime
 #  email      :string
+#  image      :string
 #  ipaddress  :string
 #  name       :string
 #  created_at :datetime         not null
